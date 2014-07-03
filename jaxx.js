@@ -1,14 +1,21 @@
 window.Jaxx = (function(){
   var createRequest = function(method, url, successCb, errorCb){
     var request = new XMLHttpRequest();
-    successCb = successCb || function(){};
-    errorCb = errorCb || function(){};
-    request.addEventListener('load', successCb, false);
-    request.addEventListener('error', errorCb, false);
+    registerCallbacks(request, successCb, errorCb);
     request.open(method, url, true);
     request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     return request;
   };
+
+  var registerCallbacks = function(request, successCb, errorCb){
+    registerCallback(request, 'load', successCb || function(){});
+    registerCallback(request, 'error', errorCb || function(){});
+  };
+
+  var registerCallback = function(request, eventType, callback){
+    request.addEventListener(eventType, callback, false);
+  }
+
   return {
     get: function(url, success, error){
       var request = createRequest('get', url, success, error);
