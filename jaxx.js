@@ -8,12 +8,12 @@ window.Jaxx = (function(){
   };
 
   var registerCallbacks = function(request, successCb, errorCb){
-    registerCallback(request, 'load', successCb || function(){});
-    registerCallback(request, 'error', errorCb || function(){});
+    registerCallback(request, 'load', successCb);
+    registerCallback(request, 'error', errorCb);
   };
 
   var registerCallback = function(request, eventType, callback){
-    request.addEventListener(eventType, callback, false);
+    request.addEventListener(eventType, callback || function(){}, false);
   }
 
   return {
