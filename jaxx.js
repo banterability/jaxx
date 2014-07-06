@@ -1,4 +1,4 @@
-window.Jaxx = (function(){
+var Jaxx = (function(){
   var createRequest = function(method, url, successCb, errorCb){
     var request = new XMLHttpRequest();
 
@@ -28,3 +28,9 @@ window.Jaxx = (function(){
     }
   };
 })();
+
+if(window){
+  window.Jaxx = Jaxx;
+} else if(module){
+  module.exports = Jaxx;
+}
