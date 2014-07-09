@@ -12,7 +12,7 @@ var guess = {
   room: 'Billiard Room'
 }
 
-Jaxx.get('/mystery/solve', guess);
+Jaxx.post('/mystery/solve', guess);
 ```
 
 **Request:**
