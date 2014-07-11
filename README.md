@@ -26,7 +26,7 @@ Jaxx.get('/mystery/clues', successHandler, errorHandler);
 ```
 
 **Request:**
-```
+```http
 GET /mystery/clues HTTP/1.1
 X-Requested-With: XMLHttpRequest
 ```
@@ -52,7 +52,7 @@ Jaxx.post('/mystery/solve', guess);
 ```
 
 **Request:**
-```
+```http
 POST /mystery/solve HTTP/1.1
 Content-Length: 73
 Content-Type: application/json
